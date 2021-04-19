@@ -8,11 +8,15 @@ export type UserList = Array<User & {
 }>
 
 export async function login(username: string, password: string) {
-    const request = await fetch('/users.json')
-    const usersJson: UserList = await request.json()
-    return usersJson
-        .find(s => s.password === password &&
-            s.username === username)
+    try {
+        const request = await fetch('/users.json')
+        const usersJson: UserList = await request.json()
+        return usersJson
+            .find(s => s.password === password &&
+                s.username === username)
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 export async function getUser() {
