@@ -1,26 +1,19 @@
 export type User = {
-    name: string;
-    username: string;
+    email: string;
 }
 
 export type UserList = Array<User & {
     password: string;
 }>
 
-export async function login(username: string, password: string) {
+export async function login(email: string, password: string) {
     try {
         const request = await fetch('/users.json')
         const usersJson: UserList = await request.json()
         return usersJson
             .find(s => s.password === password &&
-                s.username === username)
+                s.email === email)
     } catch (e) {
         console.log(e)
     }
-}
-
-export async function getUser() {
-    const request = await fetch('/current.json')
-    const user: User = await request.json()
-    return user
 }

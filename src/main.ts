@@ -1,7 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import './assets/style/index.css'
 
-createApp(App).use(store).use(router).mount('#app')
+import DKToast from 'vue-dk-toast';
+
+createApp(App)
+    .use(DKToast)
+    .use(store)
+    .use(router)
+    .mount('#app')

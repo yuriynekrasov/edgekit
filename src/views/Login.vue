@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    <h1>Home page</h1>
+    <Auth/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Auth from '@/components/Auth.vue';
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Login',
+  components: {
+    Auth,
+  },
 });
 </script>

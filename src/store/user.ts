@@ -2,38 +2,31 @@ import { computed, reactive } from 'vue';
 import * as Request from '@/requests'
 
 const state = reactive({
-    name: '',
-    username: '',
+    email: '',
+    password: '',
     error: ''
 })
 
 const getters = reactive({
-    isLoggedIn: computed(() => state.username !== '')
+    isLoggedIn: computed(() => state.email !== '')
 })
 
 const actions = {
-    async getUser() {
-        const user = await Request.getUser()
-        if ( user == null) return
-
-        state.name = user.name
-        state.username = user.username
-    },
-    async login(username: string, password: string) {
-        const user = await Request.login(username, password)
-        if (user == null) {
-            state.error = 'Пользователь не найден'
+    async login(email: string, password: string) {
+        const user = await Request.login(email, password)
+        if (!user) {
+            state.error = 'The password is invalid or the user doesn’t have a password.'
             return false
         }
-        state.name = user.name
-        state.username = user.username
+        state.email = user.email
+        state.password = user.password
         state.error = ''
 
         return true
     },
     async logout() {
-        state.name = ''
-        state.username = ''
+        state.email = ''
+        state.password = ''
     }
 }
 export default { state, getters, ... actions }

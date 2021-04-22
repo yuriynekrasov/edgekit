@@ -1,11 +1,24 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <logo/>
+    <div class="links">
+      <a href="#" class="links_sign-up">New user?</a>
+      <router-link class="links_sign-in" to="/login">Sign up</router-link>
+    </div>
   </div>
   <router-view/>
 </template>
+<script>
+import { defineComponent } from "vue";
+import Logo from "@/components/Logo";
 
+export default defineComponent({
+  components: {
+    Logo,
+  },
+})
+
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,15 +29,18 @@
 }
 
 #nav {
-  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 32px;
 
-  a {
+  .links_sign-up {
     font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    color: #9c9c9c;
+    margin-right: 10px;
+  }
+  .links_sign-in {
+    font-weight: bold;
+    color: #000000;
   }
 }
 </style>
