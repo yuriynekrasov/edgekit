@@ -1,1 +1,14 @@
 @import 'reset.css';
+@import 'login.css';
+
+.v--default-css .c-toast--error {
+    background-color: #ff5858 !important;
+    border-radius: 0.5em;
+}
+.v--default-css .c-toast--success {
+    background-color: #20cd46 !important;
+}
+.v--default-css .c-toast {
+    border-radius: 3px !important;
+    min-height: 1.5em !important;
+}

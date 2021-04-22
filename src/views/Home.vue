@@ -11,3 +11,8 @@ export default defineComponent({
   name: 'Home'
 });
 </script>
+<style scoped>
+  h1{
+    font-size: 56px;
+  }
+</style>

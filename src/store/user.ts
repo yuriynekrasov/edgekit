@@ -16,13 +16,12 @@ const actions = {
         const user = await Request.login(email, password)
         if (!user) {
             state.error = 'The password is invalid or the user doesn’t have a password.'
-            return false
+            throw new Error('Error')
         }
         state.email = user.email
         state.password = user.password
         state.error = ''
-
-        return true
+        return
     },
     async logout() {
         state.email = ''
