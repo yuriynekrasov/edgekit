@@ -20,27 +20,18 @@ export default defineComponent({
 
 </script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 #nav {
   display: flex;
   justify-content: space-between;
   padding: 22px 32px;
+  font-weight: 500;
 
   .links_sign-up {
-    font-weight: bold;
     color: #9c9c9c;
     margin-right: 10px;
   }
   .links_sign-in {
-    font-weight: bold;
-    color: #000000;
+    color: #171717;
   }
 }
 </style>

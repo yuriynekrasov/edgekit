@@ -1,5 +1,8 @@
 @import 'reset.css';
 @import 'login.css';
+#app {
+    font-family: 'Inter', sans-serif;
+}
 
 .v--default-css .c-toast--error {
     background-color: #ff5858 !important;

@@ -7,29 +7,39 @@
     font-size: 48px;
     text-align: left;
     padding-top: 80px;
-    color: black;
+    color: #171717;
     line-height: 56px;
     margin-bottom: 40px;
+    font-weight: 700;
 }
 .login_form {
     width: 1200px;
 }
 .login_input-group {
     display: flex;
-    margin-bottom: 20px;
 }
 .login_input-group input{
-    width: calc(512px - 1.6rem);
-    border: 1px solid #ced4da;
-    padding: .375rem .75rem;
-    border-radius: .25rem;
-    line-height: 1.5;
-    font-size: 1rem;
+    width: calc(512px - 42px);
+    border: 1px solid #D6D6D6;
+    padding: 20.5px;
+    border-radius: 6px;
+    font-size: 18px;
     font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+.login_input-group input:hover {
+    border: 1px solid #C6C6C6;
+}
+.login_input-group input:focus {
+    border: 1px solid #2C5EF6;
+}
+
+.login_input-group:first-child {
+    margin-bottom: 24px;
 }
 .login_input-group button {
+    margin-top: 40px;
     display: inline-block;
-    font-weight: 400;
     line-height: 1.5;
     width: 512px;
     text-align: center;
@@ -39,41 +49,51 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: .25rem;
+    padding: 17.5px;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 6px;
     color: #fff;
     background: #171717;
     border: 1px solid transparent;
+    font-family: 'Inter', sans-serif;
 }
 .login_input-group button:hover {
     background: #2C5EF6;
 }
 .input-errors {
-    width: 220px;
-    padding: 5px 50px;
+    width: 203px;
+    padding: 5px 28px 5px 48px;
+    display: flex;
+    align-items: center;
 }
 .error {
-    border: solid 1px red !important;
+    border: solid 1px #E84141 !important;
 }
 .error-msg {
-    color: red
+    color: #E84141;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
 }
 .input-errors__password {
-    border-right: solid 2px #c9c9c9;
+    border-right: solid 1px #D6D6D6;
 }
 .input-group_forgot-pass {
     display: flex;
     align-items: center;
-    color: blue;
-    padding-left: 40px;
+    color: #2C5EF6;
     width: 100px;
 }
 .input-group_forgot-pass a {
-    color: blue
+    color: #2C5EF6;
+    font-family: 'Inter', sans-serif;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
 }
 button[disabled] {
-    background: #d2d2d2;
+    background: #D1D1D1;
 }
 button[disabled]:hover {
     background: #D1D1D1;

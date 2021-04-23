@@ -13,9 +13,9 @@
               :class="{ error: v$.email.$errors.length }"
               placeholder="Work email"
               type="text"
-              data-email>
+              data-test="email">
           <div class="input-errors" v-if="v$.email.$error">
-            <div class="error-msg">{{ v$.email.$errors[0].$message }}</div>
+            <div class="error-msg" data-error-email>{{ v$.email.$errors[0].$message }}</div>
           </div>
         </div>
         <div class="login_input-group">
@@ -25,11 +25,11 @@
               v-model="form.password"
               placeholder="Password"
               type="password"
-              data-password>
-          <div class="input-errors input-errors__password" v-if="userStore.state.error">
+              data-test="password">
+          <div class="input-errors input-errors__password" v-if="isServerError">
             <div class="error-msg">{{ userStore.state.error }}</div>
           </div>
-          <div class="input-group_forgot-pass">
+          <div class="input-group_forgot-pass" :style="[isServerError ? { 'padding-left': '28px'} : { 'padding-left': '48px'}]">
             <a href="#">Forgot password?</a>
           </div>
         </div>
@@ -52,10 +52,10 @@ import router from "@/router";
 import Form from '@/interfaces/login'
 
 export default defineComponent({
-  setup(params, ctx) {
+  setup() {
     const form : Form = reactive({
-      email: 'q@q.qwe',
-      password: '123123'
+      email: '',
+      password: ''
     })
 
     const rules = computed(() => {
@@ -81,7 +81,7 @@ export default defineComponent({
       userStore.login(form.email, form.password)
       .then(() => {
         toast.success('Welcome')
-        router.push('/')
+        router.push('/home')
       })
       .catch(e => {
         toast.error(e.message)
@@ -90,8 +90,11 @@ export default defineComponent({
     const filledForm = computed(() => {
         return v$.value.$invalid
     })
+    const isServerError = computed(() => {
+      return !!userStore.state.error
+    })
 
-    return { form, userStore, onSubmit, v$, filledForm }
+    return { form, userStore, onSubmit, v$, filledForm, isServerError }
   },
 })
 </script>
